@@ -1,0 +1,33 @@
+package mice.and.cats;
+
+public abstract class Animal {
+    private String name;
+    private String hairColour;
+    private int yearsOld;
+    private String hobby;
+    private Item[] items;
+    public final static int successfulRate = 10;
+
+    public Animal(String name, String hairColour, int yearsOld, String hobby, Item[] items) {
+        this.name = name;
+        this.hairColour = hairColour;
+        this.yearsOld = yearsOld;
+        this.hobby = hobby;
+        this.items = items;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void printBioData(){
+        System.out.println("Name: " + name);
+        System.out.println("Colour: " + hairColour);
+        System.out.println("Years old: " + yearsOld);
+        System.out.println("Hobby: " + hobby);
+        System.out.println("Owned items:");
+        for(Item items : items){
+            System.out.println("-" + items.getName());
+        }
+    }
+}
