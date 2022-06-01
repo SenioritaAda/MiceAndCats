@@ -1,0 +1,34 @@
+package mice.and.cats;
+
+public class Flat {
+
+    private Room[] rooms= new Room[4];
+
+    Flat(){
+
+        Item[] kitchenItems = new Item[3];
+        kitchenItems[0] = new Item("Cheese", 3);
+        kitchenItems[1] = new Item("Butter", 2);
+        kitchenItems[2] = new Item("Bread", 2);
+        rooms[0] = new Room("Kitchen", kitchenItems);
+
+        Item[] livingRoomItems = new Item[2];
+        livingRoomItems[0] = new Item("Remote", 2);
+        livingRoomItems[1] = new Item("Tissues", 1);
+        rooms[1] = new Room("Living Room", livingRoomItems);
+
+        Item[] bathroomItems = new Item[2];
+        bathroomItems[0] = new Item("Soap", 2);
+        bathroomItems[1] = new Item("Toilet paper", 1);
+        rooms[2] = new Room("Bathroom", bathroomItems);
+
+        Item[] bedroomItems = new Item[2];
+        bedroomItems[0] = new Item("Cat'sToy", 3);
+        bedroomItems[1] = new Item("Glasses", 3);
+        rooms[3] = new Room("Bathroom", bedroomItems);
+    }
+
+    public Room[] getRooms() {
+        return rooms;
+    }
+}
