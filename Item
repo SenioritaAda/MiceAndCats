@@ -1,0 +1,19 @@
+package mice.and.cats;
+
+public class Item {
+    private String name;
+    private int importance; // 1 - not that important, 2 - medium importance, 3 - very important;
+
+    public Item(String name, int importance) {
+        this.name = name;
+        this.importance = importance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getImportance() {
+        return importance;
+    }
+}
