@@ -1,0 +1,20 @@
+package mice.and.cats;
+
+public class Room {
+
+    private String name;
+    private Item[] items;
+
+    public Room(String name, Item[] items) {
+        this.name = name;
+        this.items = items;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Item[] getItems() {
+        return items;
+    }
+}
