@@ -1,0 +1,56 @@
+package mice.and.cats;
+
+import java.util.Random;
+
+public class HouseProtectors {
+
+    private Cat[] cats = new Cat[2];
+    private Random randomNumberGenerator = new Random();
+
+    HouseProtectors(){
+
+        Item[] marcelItems = new Item[2];
+        marcelItems[0] = new Item("Mouse Catcher", 2);
+        marcelItems[1] = new Item("Bootle of Milk", 3);
+        cats[0] = new Cat("Marcel", "Ginger", 10, "Sunbathing", marcelItems);
+
+        Item[] stellaItems = new Item[2];
+        stellaItems[0] = new Item("Scratcher", 3);
+        stellaItems[1] = new Item("Mouse Toy for Cats", 1);
+        cats[1] = new Cat("Stella", "Black with white socks", 8, "Scratching", stellaItems);
+    }
+
+    private boolean isHuntingSuccessful(){
+        int randomSuccessRate = randomNumberGenerator.nextInt(100);
+        int catsSuccessRate = Cat.successfulRate * cats.length;
+        if(randomSuccessRate > catsSuccessRate){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public boolean goHunting(MiceClan miceClan){
+        if(isHuntingSuccessful()){
+            System.out.println("Cats successfully caught Mice Clan!");
+            if(miceClan.getSumOfItemsImportance() > 0){
+                System.out.println("The items collected by clan got recovered! \nTheir overall importance was: " + miceClan.getSumOfItemsImportance() + ".");
+            }else{
+                System.out.println("The clan couldn't collect anything.");
+            }
+            return true;
+        }else{
+            System.out.println("Cats couldn't caught Mice Clan!");
+            return false;
+        }
+    }
+
+    public void getProtectorsInfo(){
+        System.out.println("House protectors consists of:");
+        for(Cat cats: cats){
+            System.out.println("------------------------");
+            cats.printBioData();
+        }
+    }
+
+}
