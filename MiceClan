@@ -1,0 +1,72 @@
+package mice.and.cats;
+
+import java.util.Random;
+
+public class MiceClan {
+
+    private Mouse[] mice = new Mouse[4];
+    private Random randomNumberGenerator = new Random();
+    private int sumOfItemsImportance = 0;
+
+    MiceClan(){
+
+        Item[] dadMiceItems = new Item[2];
+        dadMiceItems[0] = new Item("Little Glasses", 3);
+        dadMiceItems[1] = new Item("Little Tie", 1);
+        mice[0] = new Mouse("Dad Mouse", "Grey", 5, "Reading", dadMiceItems);
+
+        Item[] momMiceItems = new Item[2];
+        momMiceItems[0] = new Item("Little Apron", 1);
+        momMiceItems[1] = new Item("Little Tapping Boots", 3);
+        mice[1] = new Mouse("Mom Mouse", "Silver", 5, "Dancing", momMiceItems);
+
+        Item[] sisMiceItems = new Item[2];
+        sisMiceItems[0] = new Item("Little Skirt", 2);
+        sisMiceItems[1] = new Item("Little TeddyBear", 3);
+        mice[2] = new Mouse("Little Sis Mouse", "Blond", 1, "Running", sisMiceItems);
+
+        Item[] broMiceItems = new Item[2];
+        broMiceItems[0] = new Item("Little Shirt", 1);
+        broMiceItems[1] = new Item("Little Botle of Ketchup", 3);
+        mice[3] = new Mouse("Brother Mouse", "Black", 2, "Eating Cheese", broMiceItems);
+
+    }
+
+    public int getSumOfItemsImportance() {
+        return sumOfItemsImportance;
+    }
+
+    public void getClanInfo(){
+        System.out.println("Mice Clan consists of:");
+        for(Mouse mice: mice){
+            System.out.println("------------------------");
+            mice.printBioData();
+        }
+    }
+
+    private boolean isCollectingSuccessful(){
+        int randomSuccessRate = randomNumberGenerator.nextInt(100);
+        int clanSuccessRate = Mouse.successfulRate * mice.length;
+        if(randomSuccessRate > clanSuccessRate){
+            System.out.println("Collecting session was unsuccesful.");
+            return false;
+        }else{
+            System.out.println("Collecting was succesfull!");
+            return true;
+        }
+    }
+    public void letsGoCollecting(Room[] rooms){
+        int randomRoomIndex = randomNumberGenerator.nextInt(rooms.length);
+        if(isCollectingSuccessful()){
+            System.out.println("The items collected by the Mice Clan from the " + rooms[randomRoomIndex].getName() + " are:");
+            for(Item item : rooms[randomRoomIndex].getItems()){
+                System.out.println("-" + item.getName());
+                sumOfItemsImportance += item.getImportance();
+            }
+        }else{
+            System.out.println("The Mice Clan tried to collect things from the " + rooms[randomRoomIndex].getName() + ", but they failed.");
+        }
+
+    }
+
+}
