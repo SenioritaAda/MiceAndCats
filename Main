@@ -1,0 +1,22 @@
+package mice.and.cats;
+
+public class MiceAndCatsApp {
+
+    public static void main(String[] args) {
+
+	        Flat flat = new Flat();
+            MiceClan miceClan = new MiceClan();
+            HouseProtectors houseProtectors = new HouseProtectors();
+
+            System.out.println("The house is constantly haunted by the Might Mice Clan.");
+            miceClan.getClanInfo();
+            System.out.println("The houselady Miriam is in tears because of the Little Criminals. That's why she adopted two amazing cats to help her with this issue!");
+            houseProtectors.getProtectorsInfo();
+            System.out.println("--------++++---------");
+            do{
+                System.out.println("Mice Clan is on the move!");
+                miceClan.letsGoCollecting(flat.getRooms());
+            }while(!houseProtectors.goHunting(miceClan));
+
+    }
+}
