@@ -1,0 +1,15 @@
+package mice.and.cats;
+
+public class Cat extends Animal{
+
+    public final static int successfulRate = 15;
+
+    public Cat(String name, String hairColour, int yearsOld, String hobby, Item[] items) {
+        super(name, hairColour, yearsOld, hobby, items);
+    }
+
+    public void printBioData(){
+        System.out.println("Cat:");
+        super.printBioData();
+    }
+}
